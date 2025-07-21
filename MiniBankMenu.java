@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class MiniBankMenu {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        BankAccount ba = new BankAccount();
         int choice;
 
         do {
@@ -18,6 +19,26 @@ public class MiniBankMenu {
             switch (choice) {
                 case 1:
                     System.out.println(">> Creating a new account...");
+                    System.out.println("");
+                    System.out.println("");
+
+                    System.out.println("Enter Account Name:");
+                    String accName = sc.next();
+
+                    System.out.println("Enter Account Number:");
+                    String accNum = sc.next();
+
+                    System.out.println("Enter Account Balance:");
+                    double accbal = sc.nextDouble();
+
+                    ba.set(accName, accNum, accbal);
+
+                    System.out.println("");
+                    System.out.println("");
+                    System.out.println(accName);
+                    System.out.println(accNum);
+                    System.out.println(accbal);
+                    System.out.println("Created new account");
 
                     break;
                 case 2:
@@ -30,7 +51,7 @@ public class MiniBankMenu {
                     break;
                 case 4:
                     System.out.println(">> Viewing account details...");
-
+                    ba.showAccountInfo();
                     break;
                 case 5:
                     System.out.println(">> Exiting the system. Thank you!");
