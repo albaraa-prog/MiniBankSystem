@@ -4,6 +4,7 @@ public class MiniBankMenu {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         BankAccount ba = new BankAccount();
+        SavingsAccount sa = new SavingsAccount();
         int choice;
 
         do {
@@ -12,13 +13,15 @@ public class MiniBankMenu {
             System.out.println("2. Deposit money");
             System.out.println("3. Withdraw money");
             System.out.println("4. View account details");
-            System.out.println("5. Exit");
-            System.out.print("Enter your choice (1-5): ");
+            System.out.println("5. Create a savings account");
+            System.out.println("6. Apply interest to savings account");
+            System.out.println("7. Exit");
+            System.out.print("Enter your choice (1-7): ");
             choice = sc.nextInt();
 
             switch (choice) {
                 case 1:
-                    System.out.println(">> Creating a new account...\n");
+                    System.out.println(">> Creating a new regular account...\n");
 
                     System.out.print("Enter Account Name: ");
                     String accName = sc.next();
@@ -30,7 +33,7 @@ public class MiniBankMenu {
                     double accbal = sc.nextDouble();
 
                     ba.set(accName, accNum, accbal);
-                    System.out.println("\nAccount created successfully!");
+                    System.out.println("\nRegular account created successfully!");
                     break;
 
                 case 2:
@@ -53,14 +56,38 @@ public class MiniBankMenu {
                     break;
 
                 case 5:
+                    System.out.println(">> Creating a new savings account...\n");
+
+                    System.out.print("Enter Account Name: ");
+                    String sAccName = sc.next();
+
+                    System.out.print("Enter Account Number: ");
+                    String sAccNum = sc.next();
+
+                    System.out.print("Enter Initial Balance: ");
+                    double sAccBal = sc.nextDouble();
+
+                    System.out.print("Enter Interest Rate (%): ");
+                    double sInterestRate = sc.nextDouble();
+
+                    sa.setSavingsAccount(sAccName, sAccNum, sAccBal, sInterestRate);
+                    System.out.println("\nSavings account created successfully!");
+                    break;
+
+                case 6:
+                    System.out.println(">> Applying interest to savings account...");
+                    sa.applyInterest();
+                    break;
+
+                case 7:
                     System.out.println(">> Exiting the system. Thank you!");
                     break;
 
                 default:
-                    System.out.println("Invalid choice! Please enter a number between 1 and 5.");
+                    System.out.println("Invalid choice! Please enter a number between 1 and 7.");
             }
 
-        } while (choice != 5);
+        } while (choice != 7);
 
         sc.close();
     }
