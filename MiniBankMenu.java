@@ -18,44 +18,44 @@ public class MiniBankMenu {
 
             switch (choice) {
                 case 1:
-                    System.out.println(">> Creating a new account...");
-                    System.out.println("");
-                    System.out.println("");
+                    System.out.println(">> Creating a new account...\n");
 
-                    System.out.println("Enter Account Name:");
+                    System.out.print("Enter Account Name: ");
                     String accName = sc.next();
 
-                    System.out.println("Enter Account Number:");
+                    System.out.print("Enter Account Number: ");
                     String accNum = sc.next();
 
-                    System.out.println("Enter Account Balance:");
+                    System.out.print("Enter Initial Balance: ");
                     double accbal = sc.nextDouble();
 
                     ba.set(accName, accNum, accbal);
-
-                    System.out.println("");
-                    System.out.println("");
-                    System.out.println(accName);
-                    System.out.println(accNum);
-                    System.out.println(accbal);
-                    System.out.println("Created new account");
-
+                    System.out.println("\nAccount created successfully!");
                     break;
+
                 case 2:
                     System.out.println(">> Depositing money...");
-
+                    System.out.print("Enter amount to deposit: ");
+                    double depositAmount = sc.nextDouble();
+                    ba.deposit(depositAmount);
                     break;
+
                 case 3:
                     System.out.println(">> Withdrawing money...");
-
+                    System.out.print("Enter amount to withdraw: ");
+                    double withdrawAmount = sc.nextDouble();
+                    ba.withdraw(withdrawAmount);
                     break;
+
                 case 4:
                     System.out.println(">> Viewing account details...");
                     ba.showAccountInfo();
                     break;
+
                 case 5:
                     System.out.println(">> Exiting the system. Thank you!");
                     break;
+
                 default:
                     System.out.println("Invalid choice! Please enter a number between 1 and 5.");
             }
