@@ -1,9 +1,8 @@
 public class SavingsAccount extends BankAccount {
     double interestRate;
 
-
     public void setSavingsAccount(String accName, String accNum, double bal, double rate) {
-        set(accName, accNum, bal); // Call superclass method
+        set(accName, accNum, bal);
         this.interestRate = rate;
     }
 
@@ -20,5 +19,11 @@ public class SavingsAccount extends BankAccount {
         } else {
             System.out.println("Invalid interest rate. Cannot apply interest.");
         }
+    }
+
+    @Override
+    public void showAccountInfo() {
+        super.showAccountInfo(); // Call parent method
+        System.out.println("Interest Rate: " + interestRate + "%");
     }
 }
